@@ -1,0 +1,40 @@
+/* src/app/demos/context-change/context-change.component.css */
+.demo-container {
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 1em auto;
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.demo-logo {
+  height: 40vmin;
+}
+
+.demo-spin {
+  animation: spin infinite 20s linear;
+}
+
+.demo-spin-silly {
+  animation: spin infinite 1s linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fallback-img {
+  height: 40vmin;
+}

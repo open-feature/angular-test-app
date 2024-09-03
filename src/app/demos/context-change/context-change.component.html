@@ -1,0 +1,23 @@
+<div class="demo-container">
+  <h2>Context Change Demo</h2>
+
+  <button (click)="toggleContext()">Toggle Context Value</button>
+
+  <div
+    *booleanFeatureFlag="'go-fast'; domain CONTEXT_CHANGE_PROVIDER_NAME; default: false; else: elseGoFast; initializing init; reconciling reconciling">
+    <img src="logo.png" class="demo-logo demo-spin-silly" alt="logo" />
+    <p>Welcome to this silly Angular app!</p>
+  </div>
+  <ng-template #elseGoFast>
+    <img src="logo.png" class="demo-logo demo-spin" alt="logo" />
+    <p>Welcome to this Angular app.</p>
+  </ng-template>
+  <ng-template #init>
+    <img src="logo.png" class="demo-logo" alt="logo" />
+    <p>Initializing...</p>
+  </ng-template>
+  <ng-template #reconciling>
+    <img src="logo.png" class="demo-logo" alt="logo" />
+    <p>Reconciling...</p>
+  </ng-template>
+</div>
