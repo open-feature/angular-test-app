@@ -1,0 +1,17 @@
+<div class="demo-container">
+  <h2>Flag Value Change Demo</h2>
+  <button (click)="toggleFlag()">Change Flag Value</button>
+  <div
+    *booleanFeatureFlag="'isFeatureEnabled'; default: false; domain: FLAG_CHANGE_PROVIDER_NAME; else: booleanFeatureElse; initializing: booleanFeatureInitializing; reconciling: booleanFeatureReconciling">
+    This is shown when the feature flag is enabled.
+  </div>
+  <ng-template #booleanFeatureElse>
+    This is shown when the feature flag is disabled.
+  </ng-template>
+  <ng-template #booleanFeatureInitializing>
+    This is shown when the feature flag is initializing.
+  </ng-template>
+  <ng-template #booleanFeatureReconciling>
+    This is shown when the feature flag is reconciling.
+  </ng-template>
+</div>

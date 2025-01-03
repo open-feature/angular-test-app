@@ -8,10 +8,13 @@ import { OpenFeatureModule, InMemoryProvider } from '@openfeature/angular-sdk';
 
 import { routes } from './app.routes';
 import {
-  CONTEXT_CHANGE_CONTEXT_KEY,
+  CONTEXT_CHANGE_PROVIDER,
   CONTEXT_CHANGE_PROVIDER_NAME,
 } from './demos/context-change/context-change.component';
-import { DelayedInMemoryProvider } from './test-provider';
+import {
+  FLAG_CHANGE_PROVIDER,
+  FLAG_CHANGE_PROVIDER_NAME,
+} from './demos/flag-change/flag-change.component';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,18 +24,8 @@ export const appConfig: ApplicationConfig = {
       OpenFeatureModule.forRoot({
         provider: new InMemoryProvider({}),
         domainBoundProviders: {
-          [CONTEXT_CHANGE_PROVIDER_NAME]: new DelayedInMemoryProvider(
-            {
-              'go-fast': {
-                disabled: false,
-                variants: { on: true, off: false },
-                defaultVariant: 'off',
-                contextEvaluator: context =>
-                  context[CONTEXT_CHANGE_CONTEXT_KEY] ? 'on' : 'off',
-              },
-            },
-            2000
-          ),
+          [CONTEXT_CHANGE_PROVIDER_NAME]: CONTEXT_CHANGE_PROVIDER,
+          [FLAG_CHANGE_PROVIDER_NAME]: FLAG_CHANGE_PROVIDER,
         },
       })
     ),
